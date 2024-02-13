@@ -1,0 +1,13 @@
+../Core/Src/main.c:102:6:Set_Pixel	16	static
+../Core/Src/main.c:116:6:Set_Brillo	40	static
+../Core/Src/main.c:134:6:Enviar_datos	32	static
+../Core/Src/main.c:209:6:vumetro	128	static
+../Core/Src/main.c:1197:10:arcoiris	40	static
+../Core/Src/main.c:1232:7:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:1275:5:main	8	static
+../Core/Src/main.c:1614:6:SystemClock_Config	88	static
+../Core/Src/main.c:1660:13:MX_TIM3_Init	32	static
+../Core/Src/main.c:1705:13:MX_TIM4_Init	64	static
+../Core/Src/main.c:1762:13:MX_DMA_Init	16	static
+../Core/Src/main.c:1780:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:1831:6:Error_Handler	4	static,ignoring_inline_asm
