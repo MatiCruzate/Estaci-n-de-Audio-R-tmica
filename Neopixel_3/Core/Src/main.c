@@ -33,7 +33,7 @@
 #define Neopixel_cero 38
 #define Neopixel_uno 76
 //Ahora veo la cantidad de pixels, osea ,leds, de mi matriz
-#define Num_pixels 64
+#define Num_pixels 128
 // Por cada uno tengo que enviar 24 bits mas 50 us de cero
 #define DMA_BUFF_SIZE (Num_pixels*24+50)
 
@@ -204,9 +204,9 @@ void Enviar_datos (void)
 //la comento porque no va a tener sentido todavia si no estan todos los valores
 //declarados. Es para la funcion final
 //Toma un valor entero sin signo para la intensidad de las bandas
-//void vumetro(uint8_t banda1,uint8_t banda2,uint8_t banda3,uint8_t banda4,uint8_t banda5,uint8_t banda6,uint8_t banda7,uint8_t banda8){
+void vumetro(uint8_t banda1,uint8_t banda2,uint8_t banda3,uint8_t banda4,uint8_t banda5,uint8_t banda6,uint8_t banda7,uint8_t banda8){
 
-void vumetro(uint8_t banda1,uint8_t banda2,uint8_t banda3,uint8_t banda4){
+//void vumetro(uint8_t banda1,uint8_t banda2,uint8_t banda3,uint8_t banda4){
 //Hay que tener en cuenta que cada banda del vumetro son dos de la matriz, pero
 //por como se recorre una esta invertida
 //colores: violeta, rosa, azul, dos verdes, amarillo, dos rojos
@@ -736,7 +736,7 @@ default:
 }
 
 
-/*
+
 numled=64;
 switch(banda5){
 case 1:
@@ -1187,7 +1187,8 @@ case 8:
 	Set_Pixel(9+numled,0,204,0);
 	Set_Pixel(8+numled,0,204,0);
 	break;
-	*/
+
+}
 }
 
 	//Esta  funcion es solo para probar
@@ -1232,32 +1233,32 @@ case 8:
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		switch(caso)
 		{
-		case 0:	vumetro(2,4,6,7);
+		case 0:	vumetro(2,4,6,7,2,4,6,7);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 1: vumetro(1,3,5,8);
+		case 1: vumetro(1,3,5,8,1,3,5,8);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
 		case 2:
-		vumetro(1,5,1,5);
+		vumetro(1,5,1,5,1,5,1,5);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 3:	vumetro(2,1,3,4);
+		case 3:	vumetro(2,1,3,4,2,1,3,4);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 4:	vumetro(8,7,6,2);
+		case 4:	vumetro(8,7,6,2,8,7,6,2);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 5:	vumetro(1,2,3,4);
+		case 5:	vumetro(1,2,3,4,1,2,3,4);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 6: vumetro(1,3,6,2);
+		case 6: vumetro(1,3,6,2,1,3,6,2);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;

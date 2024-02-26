@@ -60,8 +60,8 @@ all: main-build
 main-build: Neopixel_3.elf secondary-outputs
 
 # Tool invocations
-Neopixel_3.elf Neopixel_3.map: $(OBJS) $(USER_OBJS) C:\Users\mirma\Desktop\Matias\UNLAM\Para\ pasar\Neopixel_3\STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Neopixel_3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\mirma\Desktop\Matias\UNLAM\Para pasar\Neopixel_3\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Neopixel_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Neopixel_3.elf Neopixel_3.map: $(OBJS) $(USER_OBJS) C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Neopixel_3\STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Neopixel_3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Neopixel_3\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Neopixel_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

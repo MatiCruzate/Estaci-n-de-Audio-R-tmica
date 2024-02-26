@@ -1,0 +1,13 @@
+15:02:03 **** Build of configuration Debug for project Audio_Ritmica ****
+make -j8 all 
+arm-none-eabi-gcc -o "Audio_Ritmica.elf" @"objects.list"  -l:libarm_cortexM4lf_math.a -mcpu=cortex-m4 -T"C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Audio_Ritmica.map" -Wl,--gc-sections -static -L../Middlewares/ST/ARM/DSP/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Audio_Ritmica.elf
+ 
+arm-none-eabi-size  Audio_Ritmica.elf 
+arm-none-eabi-objdump -h -S Audio_Ritmica.elf  > "Audio_Ritmica.list"
+   text	   data	    bss	    dec	    hex	filename
+  35120	    456	   3056	  38632	   96e8	Audio_Ritmica.elf
+Finished building: default.size.stdout
+ 
+Finished building: Audio_Ritmica.list
+ 
