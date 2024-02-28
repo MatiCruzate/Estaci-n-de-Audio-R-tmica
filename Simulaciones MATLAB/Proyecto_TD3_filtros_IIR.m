@@ -9,8 +9,7 @@ clear
 %denz1 = [1  -0.9775];
 %zplane([0.02254], [1  -0.9775]);
 %fvtool(numz1,denz1);
-%sFiltrada(n)=0.05*sMuestreada(n)+0.9775*sFiltrada(n-1);
-%sFiltrada2(n)=0.026*sFiltrada(n)+0.9775*sFiltrada2(n-1);
+%sFiltrada(n)=0.02254*sMuestreada(n)+0.9775*sFiltrada(n-1);
 % **********************************************************************+
 
 %segundo filtro
@@ -23,7 +22,7 @@ clear
 %fvtool(numz21,denz21);
 %zplane(numz22, denz22);
 %fvtool(numz22,denz22);
-%sFiltrada(n)=0.32*sMuestreada(n)-0.32*sMuestreada(n-1)+0.9775*sFiltrada(n-1);
+%sFiltrada(n)=0.5*sMuestreada(n)-0.5*sMuestreada(n-1)+0.9775*sFiltrada(n-1);
 %sFiltrada2(n)=0.1*sFiltrada(n)+0.1*sFiltrada(n-1)+0.9582*sFiltrada2(n-1);
 
 %roots(denz2)
@@ -38,8 +37,8 @@ clear
 %fvtool(numz31,denz31);
 %zplane(numz32, denz32);
 %fvtool(numz32,denz32);
-%sFiltrada(n)=0.147*sMuestreada(n)-0.147*sMuestreada(n-1)+0.9582*sFiltrada(n-1);
-%sFiltrada2(n)=0.41*sFiltrada(n)+0.41*sFiltrada(n-1)+0.918*sFiltrada2(n-1);
+%sFiltrada(n)=0.5*sMuestreada(n)-0.5*sMuestreada(n-1)+0.9582*sFiltrada(n-1);
+%sFiltrada2(n)=0.25*sFiltrada(n)+0.25*sFiltrada(n-1)+0.918*sFiltrada2(n-1);
 %roots(denz2)
 
 %cuarto filtro
@@ -52,8 +51,8 @@ clear
 %fvtool(numz41,denz41);
 %zplane(numz42, denz42);
 %fvtool(numz42,denz42);
-%sFiltrada(n)=0.96*sMuestreada(n)-0.96*sMuestreada(n-1)+0.918*sFiltrada(n-1);
-%sFiltrada2(n)=0.15*sFiltrada(n)+0.15*sFiltrada(n-1)+0.8425*sFiltrada2(n-1);
+%sFiltrada(n)=1*sMuestreada(n)-1*sMuestreada(n-1)+0.918*sFiltrada(n-1);
+%sFiltrada2(n)=0.3*sFiltrada(n)+0.3*sFiltrada(n-1)+0.8425*sFiltrada2(n-1);
 %roots(denz2)
 
 %quinto filtro
@@ -66,9 +65,9 @@ clear
 %fvtool(numz51,denz51);
 %zplane(numz52, denz52);
 %fvtool(numz52,denz52);
-%%sFiltrada(n)=0.3*sMuestreada(n)-0.3*sMuestreada(n-1)+0.8425*sFiltrada(n-1);
+%sFiltrada(n)=0.5*sMuestreada(n)-0.5*sMuestreada(n-1)+0.8425*sFiltrada(n-1);
 %sFiltrada2(n)=0.6*sFiltrada(n)+0.6*sFiltrada(n-1)+0.708*sFiltrada2(n-1);
-%sFiltrada3(n)=0.2*sFiltrada2(n)+0.2*sFiltrada2(n-1)+0.708*sFiltrada3(n-1);
+%sFiltrada3(n)=0.25*sFiltrada2(n)+0.25*sFiltrada2(n-1)+0.708*sFiltrada3(n-1);
 %roots(denz2)
 
 %sexto filtro
@@ -81,9 +80,9 @@ clear
 %fvtool(numz61,denz61);
 %zplane(numz62, denz62);
 %fvtool(numz62,denz62);
-%sFiltrada(n)=0.6*sMuestreada(n)-0.6*sMuestreada(n-1)+0.708*sFiltrada(n-1);
+%sFiltrada(n)=1*sMuestreada(n)-1*sMuestreada(n-1)+0.708*sFiltrada(n-1);
 %sFiltrada2(n)=0.5*sFiltrada(n)+0.5*sFiltrada(n-1)+0.4747*sFiltrada2(n-1);
-%sFiltrada3(n)=0.4*sFiltrada2(n)+0.4*sFiltrada2(n-1)+0.4747*sFiltrada3(n-1);
+%sFiltrada3(n)=0.5*sFiltrada2(n)+0.5*sFiltrada2(n-1)+0.4747*sFiltrada3(n-1);
 %sFiltrada4(n)=1*sFiltrada3(n)-1*sFiltrada3(n-1)+0.708*sFiltrada4(n-1);
 %roots(denz2)
 
@@ -98,19 +97,18 @@ clear
 %zplane(numz72, denz72);
 %fvtool(numz72,denz72);
 %sFiltrada(n)=1*sMuestreada(n)-1*sMuestreada(n-1)+0.4747*sFiltrada(n-1);
-%sFiltrada2(n)=0.5*sFiltrada(n)+0.5*sFiltrada(n-1)+0.168*sFiltrada2(n-1);
-%sFiltrada3(n)=0.9*sFiltrada2(n)-0.9*sFiltrada2(n-1)+0.4747*sFiltrada3(n-1);
+%sFiltrada2(n)=1*sFiltrada(n)+1*sFiltrada(n-1)+0.168*sFiltrada2(n-1);
+%sFiltrada3(n)=1*sFiltrada2(n)-1*sFiltrada2(n-1)+0.4747*sFiltrada3(n-1);
 %sFiltrada4(n)=0.5*sFiltrada3(n)+0.5*sFiltrada3(n-1)+0.168*sFiltrada4(n-1);
 %roots(denz2)
 
 %octavo filtro
 %Pasa altos fc= 10000 hz
-numz8=[0.584 -0.584];
-denz8=[1 -0.168];
-zplane(numz8, denz8);
-fvtool(numz8,denz8);
-%sFiltrada(n)=1*sMuestreada(n)-1*sMuestreada(n-1)+0.168*sFiltrada(n-1);
-%sFiltrada2(n)=0.5*sFiltrada(n)-0.5*sFiltrada(n-1)+0.168*sFiltrada2(n-1);
+%numz8=[0.584 -0.584];
+%denz8=[1 -0.168];
+%zplane(numz8, denz8);
+%fvtool(numz8,denz8);
+%sFiltrada(n)=2*sMuestreada(n)-2*sMuestreada(n-1)+0.168*sFiltrada(n-1);
 %roots(denz2)
 
 
@@ -118,7 +116,8 @@ fvtool(numz8,denz8);
  fm= 44100;
  t = [0:1/fm:0.5];
 %Generamos una señal muestreada
-sMuestreada = sin(2*pi*100*t) +sin(2*pi*250*t)+sin(2*pi*500*t) +sin(2*pi*750*t) +  sin(2*pi*1000*t) + sin(2*pi*2000*t) + sin(2*pi*3500*t) +sin(2*pi*5000*t) + sin(2*pi*10000*t)+sin(2*pi*20000);
+sMuestreada =2+ sin(2*pi*100*t) +sin(2*pi*250*t)+sin(2*pi*500*t) +sin(2*pi*750*t) +  sin(2*pi*1000*t) + sin(2*pi*2000*t) + sin(2*pi*3500*t) +sin(2*pi*5000*t) + sin(2*pi*10000*t)+sin(2*pi*20000);
+%sMuestreada = 2 + sin(2*pi*7500*t);
 subplot(4,1,1), plot(t,sMuestreada);
 title('Señal muestreada');
 % 
@@ -134,15 +133,18 @@ sFiltrada(1) =0;
 sFiltrada(2)=0;
 sFiltrada2(1) =0;
 sFiltrada2(2)=0;
+sFiltrada3(1) =0;
+sFiltrada3(2)=0;
+sFiltrada4(1) =0;
+sFiltrada4(2)=0;
 for n=3:1:length(sMuestreada)
-    sFiltrada(n)=1*sMuestreada(n)-1*sMuestreada(n-1)+0.168*sFiltrada(n-1);
-    sFiltrada2(n)=0.5*sFiltrada(n)-0.5*sFiltrada(n-1)+0.168*sFiltrada2(n-1);
+    sFiltrada(n)=2*sMuestreada(n)-2*sMuestreada(n-1)+0.168*sFiltrada(n-1);
 end
-subplot(4,1,3),plot(t,sFiltrada2);
+subplot(4,1,3),plot(t,sFiltrada);
 title('Señal filtrada');
 % 
 % %Espectro de señal filtrada
-espectro_sFiltrada = fftshift(abs(fft(sFiltrada2)));
+espectro_sFiltrada = fftshift(abs(fft(sFiltrada)));
 subplot(4,1,4),stem(f,espectro_sFiltrada);
 title('Espectro señal filtrada');
 xlim([0 fm/2]);
