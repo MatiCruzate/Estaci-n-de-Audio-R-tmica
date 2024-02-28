@@ -10,6 +10,7 @@ clear
 %zplane([0.02254], [1  -0.9775]);
 %fvtool(numz1,denz1);
 %sFiltrada(n)=0.02254*sMuestreada(n)+0.9775*sFiltrada(n-1);
+%sFiltrada2(n)=0.02254*sFiltrada(n)+0.9775*sFiltrada2(n-1);
 % **********************************************************************+
 
 %segundo filtro
@@ -108,7 +109,8 @@ clear
 %denz8=[1 -0.168];
 %zplane(numz8, denz8);
 %fvtool(numz8,denz8);
-%sFiltrada(n)=2*sMuestreada(n)-2*sMuestreada(n-1)+0.168*sFiltrada(n-1);
+%sFiltrada(n)=1*sMuestreada(n)-1*sMuestreada(n-1)+0.168*sFiltrada(n-1);
+%sFiltrada2(n)=0.75*sFiltrada(n)-0.75*sFiltrada(n-1)+0.168*sFiltrada2(n-1);
 %roots(denz2)
 
 
@@ -116,8 +118,8 @@ clear
  fm= 44100;
  t = [0:1/fm:0.5];
 %Generamos una señal muestreada
-sMuestreada =2+ sin(2*pi*100*t) +sin(2*pi*250*t)+sin(2*pi*500*t) +sin(2*pi*750*t) +  sin(2*pi*1000*t) + sin(2*pi*2000*t) + sin(2*pi*3500*t) +sin(2*pi*5000*t) + sin(2*pi*10000*t)+sin(2*pi*20000);
-%sMuestreada = 2 + sin(2*pi*7500*t);
+%sMuestreada =2+ sin(2*pi*100*t) +sin(2*pi*250*t)+sin(2*pi*500*t) +sin(2*pi*750*t) +  sin(2*pi*1000*t) + sin(2*pi*2000*t) + sin(2*pi*3500*t) +sin(2*pi*5000*t) + sin(2*pi*10000*t)+sin(2*pi*20000);
+sMuestreada = 2 + sin(2*pi*15000*t);
 subplot(4,1,1), plot(t,sMuestreada);
 title('Señal muestreada');
 % 
@@ -138,13 +140,14 @@ sFiltrada3(2)=0;
 sFiltrada4(1) =0;
 sFiltrada4(2)=0;
 for n=3:1:length(sMuestreada)
-    sFiltrada(n)=2*sMuestreada(n)-2*sMuestreada(n-1)+0.168*sFiltrada(n-1);
+    sFiltrada(n)=1*sMuestreada(n)-1*sMuestreada(n-1)+0.168*sFiltrada(n-1);
+    sFiltrada2(n)=0.75*sFiltrada(n)-0.75*sFiltrada(n-1)+0.168*sFiltrada2(n-1);
 end
-subplot(4,1,3),plot(t,sFiltrada);
+subplot(4,1,3),plot(t,sFiltrada2);
 title('Señal filtrada');
 % 
 % %Espectro de señal filtrada
-espectro_sFiltrada = fftshift(abs(fft(sFiltrada)));
+espectro_sFiltrada = fftshift(abs(fft(sFiltrada2)));
 subplot(4,1,4),stem(f,espectro_sFiltrada);
 title('Espectro señal filtrada');
 xlim([0 fm/2]);
