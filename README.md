@@ -9,3 +9,5 @@ Se incluyen los siguientes archivos:
 -Proyecto_TD3_MC.ipybn: Programa en Python donde se probó la influencia de la tolerancia de los componentes pasivos en la respuesta en frecuencia del filtro anti alias mediante método de Monte Carlo
 -Modelo 3D: Modelo propio de contenedor para las matrices LED, servomotores y PCB del proyecto, se incluye el archivo extensión stl para impresión 3D.
 Simulaciones MATLAB: Pruebas de los filtros digitales IIR en MATLAB
+Informe-Cruzate_v3.pdf: El informe de la materia Técnicas Digitales 3 de la UNLAM acerca de este proyecto, donde está la explicación de cómo se realizó y se incluyen anexos para los cálculos y análisis complementarios
+Presentación- Estación de Audio Rítmica: La presentación del proyecto realizada con CANVA
