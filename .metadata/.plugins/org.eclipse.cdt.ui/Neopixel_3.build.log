@@ -1,10 +1,10 @@
-20:48:16 **** Incremental Build of configuration Debug for project Neopixel_3 ****
+22:16:43 **** Incremental Build of configuration Debug for project Neopixel_3 ****
 make -j8 all 
 arm-none-eabi-size  Neopixel_3.elf 
    text	   data	    bss	    dec	    hex	filename
-  36448	     24	   9080	  45552	   b1f0	Neopixel_3.elf
+  37656	     24	   9080	  46760	   b6a8	Neopixel_3.elf
 Finished building: default.size.stdout
  
 
-20:48:16 Build Finished. 0 errors, 0 warnings. (took 468ms)
+22:16:44 Build Finished. 0 errors, 0 warnings. (took 962ms)
 

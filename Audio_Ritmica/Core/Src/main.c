@@ -1,8 +1,8 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
+  * @file           : Estacion de Audio Ritmica
+  * @author          : Matias Cruzate
   ******************************************************************************
   * @attention
   *
@@ -94,46 +94,45 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int i=0;
-int j=0;
 float32_t iir_int;
 //A partir de acá definimos los filtros para luego copiar y pegar en el oficial
 //Filtro 1
-float32_t iir_coeff1[10]={0.05,0,0,0.9775,0,0.026,0,0,0.9775,0};
-float32_t iir_state1[4*2]={0};
+float32_t iir_coeff1[5]={0.02254,0,0,0.9775,0};
+float32_t iir_state1[4]={0};
 float32_t  iir_out1;
 arm_biquad_casd_df1_inst_f32 S1;
 //Filtro 2
-float32_t iir_coeff2[10]={0.32,-0.32,0,0.9775,0,0.1,0.1,0,0.9582,0};
+float32_t iir_coeff2[10]={0.5,-0.5,0,0.9775,0,0.1,0.1,0,0.9582,0};
 float32_t iir_state2[4*2]={0};
 float32_t iir_out2;
 arm_biquad_casd_df1_inst_f32 S2;
 //Filtro 3
-float32_t iir_coeff3[10]={0.147,-0.147,0,0.9582,0,0.41,0.41,0,0.918,0};
+float32_t iir_coeff3[10]={0.5,-0.5,0,0.9582,0,0.25,0.25,0,0.918,0};
 float32_t iir_state3[4*2]={0};
 float32_t iir_out3;
 arm_biquad_casd_df1_inst_f32 S3;
 //Filtro 4
-float32_t iir_coeff4[10]={0.96,-0.96,0,0.918,0,0.15,0.15,0,0.8425,0};
+float32_t iir_coeff4[10]={1,-1,0,0.918,0,0.3,0.3,0,0.8425,0};
 float32_t iir_state4[4*2]={0};
 float32_t iir_out4;
 arm_biquad_casd_df1_inst_f32 S4;
 //Filtro 5
-float32_t iir_coeff5[15]={0.3,-0.3,0,0.8425,0,0.6,0.6,0,0.708,0,0.2,0.2,0,0.708,0};
+float32_t iir_coeff5[15]={0.5,-0.5,0,0.8425,0,0.6,0.6,0,0.708,0,0.25,0.25,0,0.708,0};
 float32_t iir_state5[4*3]={0};
 float32_t iir_out5;
 arm_biquad_casd_df1_inst_f32 S5;
 //Filtro 6
-float32_t iir_coeff6[20]={0.6,-0.6,0,0.708,0,0.5,0.5,0,0.4747,0,0.4,0.4,0,0.4747,0,1,-1,0,0.708,0};
+float32_t iir_coeff6[20]={1,-1,0,0.708,0,0.5,0.5,0,0.4747,0,0.5,0.5,0,0.4747,0,1,-1,0,0.708,0};
 float32_t iir_state6[4*4]={0};
 float32_t iir_out6;
 arm_biquad_casd_df1_inst_f32 S6;
 //Filtro 7
-float32_t iir_coeff7[20]={1,-1,0,0.4747,0,0.5,0.5,0,0.168,0,0.9,-0.9,0,0.4747,0,0.5,0.5,0,0.168,0};
+float32_t iir_coeff7[20]={1,-1,0,0.4747,0,1,1,0,0.168,0,1,-1,0,0.4747,0,0.5,0.5,0,0.168,0};
 float32_t iir_state7[4*4]={0};
 float32_t iir_out7;
 arm_biquad_casd_df1_inst_f32 S7;
 //Filtro 8
-float32_t iir_coeff8[10]={1,-1,0,0.168,0,0.5,-0.5,0,0.168,0};
+float32_t iir_coeff8[10]={1,-1,0,0.168,0,0.75,-0.75,0,0.168,0};
 float32_t iir_state8[4*2]={0};
 float32_t iir_out8;
 arm_biquad_casd_df1_inst_f32 S8;
@@ -147,14 +146,6 @@ float max5=0;
 float max6=0;
 float max7=0;
 float max8=0;
-float32_t estado1=1;
-float32_t estado2=1;
-float32_t estado3=1;
-float32_t estado4=1;
-float32_t estado5=1;
-float32_t estado6=1;
-float32_t estado7=1;
-float32_t estado8=1;
 uint8_t caso_laser=0;
 uint8_t prueba_pwm=0;
 uint32_t pwm_H = 15;
@@ -163,7 +154,6 @@ uint8_t flag2_pwm =0;
 uint32_t pwm_L = 185;
 uint16_t pwm_pulse;
 
-volatile int flag_envio_datos = 0;
 uint16_t pwmDatos[DMA_BUFF_SIZE] = {0};
 uint8_t Datos_Pixel[Num_pixels][4];
 uint8_t Datos_Pixel_F[Num_pixels][4];
@@ -180,7 +170,7 @@ void Set_Pixel(uint8_t n, uint8_t Verde, uint8_t Rojo, uint8_t Azul)
 
 
 void vumetro(uint8_t banda1,uint8_t banda2,uint8_t banda3,uint8_t banda4,uint8_t banda5,uint8_t banda6,uint8_t banda7,uint8_t banda8){
-//Hay que tener en cuenta que cada banda del vumetro son dos de la matriz, pero
+//Hay que tener en cuenta que cada banda del vumetro son dos lineas de la matriz, pero
 //por como se recorre una esta invertida
 //colores: violeta, rosa, azul, dos verdes, amarillo, dos rojos
 int numled=0;
@@ -714,44 +704,56 @@ numled=64;
 switch(banda5){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -759,14 +761,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -775,15 +780,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -794,14 +802,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -812,14 +820,14 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
 }
 
@@ -827,44 +835,56 @@ numled=80;
 switch(banda6){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -872,14 +892,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -888,15 +911,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -907,14 +933,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -925,14 +951,14 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
 }
 
@@ -940,44 +966,56 @@ numled=96;
 switch(banda7){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -985,14 +1023,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -1001,15 +1042,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -1020,14 +1064,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -1038,14 +1082,14 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
 }
 
@@ -1053,44 +1097,56 @@ numled=112;
 switch(banda8){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -1098,14 +1154,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -1114,15 +1173,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -1133,14 +1195,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -1151,14 +1213,14 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
 }
 }
@@ -1204,14 +1266,13 @@ if((max1<out1)&(contador_adc%16==0)){
 }
 }
 
-//Genera las barras antes de mandarlas, a su vez quiero que los datos sean
-//suaves antes de mandarlos, asi que una media movil no estaria mal
+//Genera las barras antes de mandarlas
 void barras(void){
 
 //primer arbol de ifs
-if(max1>2977){
-	if(max1>3536){
-		if(max1>3815){
+if(max1>1815){
+	if(max1>1907){
+		if(max1>1953){
 			banda1=8;
 		}
 		else{
@@ -1219,7 +1280,7 @@ if(max1>2977){
 		}
 	}
 	else{
-		if(max1>3256){
+		if(max1>1861){
 			banda1=6;
 		}
 		else{
@@ -1228,8 +1289,8 @@ if(max1>2977){
 	}
 }
 else{
-	if(max1>2418){
-		if(max1>2697){
+	if(max1>1722){
+		if(max1>1769){
 			banda1=4;
 		}
 		else{
@@ -1237,7 +1298,7 @@ else{
 		}
      }
 	else{
-		if(max1>2139){
+		if(max1>1676){
 			banda1=2;
 		}
 		else{
@@ -1247,9 +1308,9 @@ else{
 }
 
 //segundo arbol de ifs
-if(max2>2977){
-	if(max2>3536){
-		if(max2>3815){
+if(max2>312){
+	if(max2>469){
+		if(max2>547){
 			banda2=8;
 		}
 		else{
@@ -1257,7 +1318,7 @@ if(max2>2977){
 		}
 	}
 	else{
-		if(max2>3256){
+		if(max2>390){
 			banda2=6;
 		}
 		else{
@@ -1266,8 +1327,8 @@ if(max2>2977){
 	}
 }
 else{
-	if(max2>2418){
-		if(max2>2697){
+	if(max2>156){
+		if(max2>234){
 			banda2=4;
 		}
 		else{
@@ -1275,7 +1336,7 @@ else{
 		}
      }
 	else{
-		if(max2>2139){
+		if(max2>78){
 			banda2=2;
 		}
 		else{
@@ -1285,9 +1346,9 @@ else{
 }
 
 //tercer arbol de ifs
-if(max3>2977){
-	if(max3>3536){
-		if(max3>3815){
+if(max3>578){
+	if(max3>864){
+		if(max3>1007){
 			banda3=8;
 		}
 		else{
@@ -1295,7 +1356,7 @@ if(max3>2977){
 		}
 	}
 	else{
-		if(max3>3256){
+		if(max3>721){
 			banda3=6;
 		}
 		else{
@@ -1304,8 +1365,8 @@ if(max3>2977){
 	}
 }
 else{
-	if(max3>2418){
-		if(max3>2697){
+	if(max3>291){
+		if(max3>434){
 			banda3=4;
 		}
 		else{
@@ -1313,7 +1374,7 @@ else{
 		}
      }
 	else{
-		if(max3>2139){
+		if(max3>148){
 			banda3=2;
 		}
 		else{
@@ -1323,9 +1384,9 @@ else{
 }
 
 //cuarto arbol de ifs
-if(max4>2977){
-	if(max4>3536){
-		if(max4>3815){
+if(max4>588){
+	if(max4>869){
+		if(max4>1009){
 			banda4=8;
 		}
 		else{
@@ -1333,7 +1394,7 @@ if(max4>2977){
 		}
 	}
 	else{
-		if(max4>3256){
+		if(max4>728){
 			banda4=6;
 		}
 		else{
@@ -1342,8 +1403,8 @@ if(max4>2977){
 	}
 }
 else{
-	if(max4>2418){
-		if(max4>2697){
+	if(max4>306){
+		if(max4>447){
 			banda4=4;
 		}
 		else{
@@ -1351,7 +1412,7 @@ else{
 		}
      }
 	else{
-		if(max4>2139){
+		if(max4>166){
 			banda4=2;
 		}
 		else{
@@ -1361,9 +1422,9 @@ else{
 }
 
 //quinto arbol de ifs
-if(max5>2977){
-	if(max5>3536){
-		if(max5>3815){
+if(max5>638){
+	if(max5>944){
+		if(max5>1097){
 			banda5=8;
 		}
 		else{
@@ -1371,7 +1432,7 @@ if(max5>2977){
 		}
 	}
 	else{
-		if(max5>3256){
+		if(max5>791){
 			banda5=6;
 		}
 		else{
@@ -1380,8 +1441,8 @@ if(max5>2977){
 	}
 }
 else{
-	if(max5>2418){
-		if(max5>2697){
+	if(max5>331){
+		if(max5>484){
 			banda5=4;
 		}
 		else{
@@ -1389,7 +1450,7 @@ else{
 		}
      }
 	else{
-		if(max5>2139){
+		if(max5>178){
 			banda5=2;
 		}
 		else{
@@ -1399,9 +1460,9 @@ else{
 }
 
 //sexto arbol de ifs
-if(max6>2977){
-	if(max6>3536){
-		if(max6>3815){
+if(max6>485){
+	if(max6>707){
+		if(max6>819){
 			banda6=8;
 		}
 		else{
@@ -1409,7 +1470,7 @@ if(max6>2977){
 		}
 	}
 	else{
-		if(max6>3256){
+		if(max6>596){
 			banda6=6;
 		}
 		else{
@@ -1418,8 +1479,8 @@ if(max6>2977){
 	}
 }
 else{
-	if(max6>2418){
-		if(max6>2697){
+	if(max6>262){
+		if(max6>374){
 			banda6=4;
 		}
 		else{
@@ -1427,7 +1488,7 @@ else{
 		}
      }
 	else{
-		if(max6>2139){
+		if(max6>151){
 			banda6=2;
 		}
 		else{
@@ -1437,9 +1498,9 @@ else{
 }
 
 //septimo arbol de ifs
-if(max7>2977){
-	if(max7>3536){
-		if(max7>3815){
+if(max7>523){
+	if(max7>756){
+		if(max7>873){
 			banda7=8;
 		}
 		else{
@@ -1447,7 +1508,7 @@ if(max7>2977){
 		}
 	}
 	else{
-		if(max7>3256){
+		if(max7>639){
 			banda7=6;
 		}
 		else{
@@ -1456,8 +1517,8 @@ if(max7>2977){
 	}
 }
 else{
-	if(max7>2418){
-		if(max7>2697){
+	if(max7>289){
+		if(max7>406){
 			banda7=4;
 		}
 		else{
@@ -1465,7 +1526,7 @@ else{
 		}
      }
 	else{
-		if(max7>2139){
+		if(max7>172){
 			banda7=2;
 		}
 		else{
@@ -1475,9 +1536,9 @@ else{
 }
 
 //octavo arbol de ifs
-if(max8>2977){
-	if(max8>3536){
-		if(max8>3815){
+if(max8>438){
+	if(max8>619){
+		if(max8>709){
 			banda8=8;
 		}
 		else{
@@ -1485,7 +1546,7 @@ if(max8>2977){
 		}
 	}
 	else{
-		if(max8>3256){
+		if(max8>528){
 			banda8=6;
 		}
 		else{
@@ -1494,8 +1555,8 @@ if(max8>2977){
 	}
 }
 else{
-	if(max8>2418){
-		if(max8>2697){
+	if(max8>256){
+		if(max8>347){
 			banda8=4;
 		}
 		else{
@@ -1503,7 +1564,7 @@ else{
 		}
      }
 	else{
-		if(max8>2139){
+		if(max8>166){
 			banda8=2;
 		}
 		else{
@@ -1560,13 +1621,11 @@ void Enviar_datos (void)
 	HAL_TIM_PWM_Start_DMA(&htim4, TIM_CHANNEL_2,(uint32_t *)pwmDatos,index);
 	}
 
-//Me genero la función para las bandas del vumetro
-//Toma un valor entero sin signo para la intensidad de las bandas
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 barras();
 
-if(banda1>>5 && banda2>>4)
+if(banda1>7 && banda2>7 && banda3>5 && banda4>4)
 {
 switch(caso_laser)
 {
@@ -1601,10 +1660,17 @@ break;
 prueba_pwm = (prueba_pwm+1)%4;
 }
 
-
-
-
+Enviar_datos();
 vumetro(banda1,banda2,banda3,banda4,banda5,banda6,banda7,banda8);
+//Devuelvo los valores maximos de las bandas a su origen
+max1=0;
+max2=0;
+max3=0;
+max4=0;
+max5=0;
+max6=0;
+max7=0;
+max8=0;
 }
 
 
@@ -1720,7 +1786,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   //Para inicializar los filtros
 
-arm_biquad_cascade_df1_init_f32(&S1,2,&iir_coeff1[0],&iir_state1[0]);
+arm_biquad_cascade_df1_init_f32(&S1,1,&iir_coeff1[0],&iir_state1[0]);
 arm_biquad_cascade_df1_init_f32(&S2,2,&iir_coeff2[0],&iir_state2[0]);
 arm_biquad_cascade_df1_init_f32(&S3,2,&iir_coeff3[0],&iir_state3[0]);
 arm_biquad_cascade_df1_init_f32(&S4,2,&iir_coeff4[0],&iir_state4[0]);
@@ -2006,7 +2072,7 @@ static void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 48000;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 332-1;
+  htim3.Init.Period = 166-1;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)

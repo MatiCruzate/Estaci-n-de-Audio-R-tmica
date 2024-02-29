@@ -1,0 +1,64 @@
+2024-02-28 16:13:39,454 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-02-28 16:13:41,114 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 515403296 Bytes (715128832)
+2024-02-28 16:13:42,364 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 535819424 Bytes (715128832)
+2024-02-28 16:13:45,062 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 296704352 Bytes (715128832)
+2024-02-28 16:13:46,895 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-02-28 16:13:46,895 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-02-28 16:13:46,896 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2024-02-28 16:13:46,896 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2024-02-28 16:13:46,896 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2024-02-28 16:13:46,896 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2024-02-28 16:13:46,897 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-02-28 16:13:46,897 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-02-28 16:13:46,898 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-02-28 16:13:46,899 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-02-28 16:13:46,899 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-02-28 16:13:46,929 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:46,930 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:46,930 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:46,933 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:46,933 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:46,936 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-02-28 16:13:47,972 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-02-28 16:13:47,973 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-02-28 16:13:48,024 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\license.tmp_save
+2024-02-28 16:13:49,049 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\license.tmp
+2024-02-28 16:13:49,230 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\gpio.tmp_save
+2024-02-28 16:13:49,629 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\gpio.tmp
+2024-02-28 16:13:50,328 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-28 16:13:50,379 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\dma.tmp_save
+2024-02-28 16:13:50,644 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\dma.tmp
+2024-02-28 16:13:50,660 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\dma_GV.tmp_save
+2024-02-28 16:13:50,905 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\dma_GV.tmp
+2024-02-28 16:13:50,916 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-02-28 16:13:50,974 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Src\stm32f4xx_it.c_save
+2024-02-28 16:13:51,404 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Src\stm32f4xx_it.c
+2024-02-28 16:13:51,427 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Inc\stm32f4xx_it.h_save
+2024-02-28 16:13:51,677 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Inc\stm32f4xx_it.h
+2024-02-28 16:13:51,728 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Src\stm32f4xx_hal_msp.c_save
+2024-02-28 16:13:52,346 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Src\stm32f4xx_hal_msp.c
+2024-02-28 16:13:52,367 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\system.tmp_save
+2024-02-28 16:13:52,629 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\MXTmpFiles\system.tmp
+2024-02-28 16:13:52,674 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-02-28 16:13:52,941 [INFO] CodeEngine:335 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Inc\stm32f4xx_hal_conf.h
+2024-02-28 16:13:53,049 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-02-28 16:13:53,055 [WARN] CodeGenerator:3939 - IP not found : null
+2024-02-28 16:13:53,083 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Inc\main.h_save
+2024-02-28 16:13:53,394 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Inc\main.h
+2024-02-28 16:13:53,421 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Src\main.c_save
+2024-02-28 16:13:54,228 [INFO] CodeEngine:279 - Generated code: C:\Users\mirma\Documents\GitHub\Estaci-n-de-Audio-R-tmica\Audio_Ritmica\Core\Src\main.c
+2024-02-28 16:13:56,090 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 606mS.
+2024-02-28 16:13:56,092 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:56,092 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:56,092 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:56,093 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:56,093 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-02-28 16:13:56,136 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 39mS.
+2024-02-28 16:13:56,156 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-02-28 16:13:56,866 [INFO] ConfigFileManager:1495 - The Die is : DIE431
+2024-02-28 16:13:56,874 [INFO] ApiDbMcu:508 - Load IP Config File for FATFS
+2024-02-28 16:13:56,887 [INFO] ApiDbMcu:508 - Load IP Config File for FREERTOS
+2024-02-28 16:13:56,892 [INFO] ApiDbMcu:508 - Load IP Config File for LIBJPEG
+2024-02-28 16:13:56,913 [INFO] ApiDbMcu:508 - Load IP Config File for MBEDTLS
+2024-02-28 16:13:57,023 [INFO] ApiDbMcu:508 - Load IP Config File for USB_DEVICE
+2024-02-28 16:13:57,035 [INFO] ApiDbMcu:508 - Load IP Config File for USB_HOST

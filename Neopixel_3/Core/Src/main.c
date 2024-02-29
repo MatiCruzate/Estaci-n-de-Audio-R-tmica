@@ -741,44 +741,56 @@ numled=64;
 switch(banda5){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -786,14 +798,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -802,15 +817,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -821,14 +839,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -839,14 +857,14 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
 }
 
@@ -854,44 +872,56 @@ numled=80;
 switch(banda6){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -899,14 +929,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -915,15 +948,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -934,14 +970,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -952,14 +988,14 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
 }
 
@@ -967,44 +1003,56 @@ numled=96;
 switch(banda7){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -1012,14 +1060,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -1028,15 +1079,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -1047,14 +1101,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -1065,14 +1119,14 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
 }
 
@@ -1080,44 +1134,56 @@ numled=112;
 switch(banda8){
 case 1:
 	Set_Pixel(0+numled,76,0,153);
-	for(uint16_t j=1;j<=14;j++){
+	for(uint16_t j=1;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,76,0,153);
+	Set_Pixel(8+numled,76,0,153);
+	for(uint16_t j=9;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 2:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
-	for(uint16_t j=2;j<=13;j++){
+	for(uint16_t j=2;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	for(uint16_t j=10;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 
 case 3:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
-	for(uint16_t j=3;j<=12;j++){
+	for(uint16_t j=3;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	for(uint16_t j=11;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 4:
 	Set_Pixel(0+numled,0,76,153);
 	Set_Pixel(1+numled,0,153,153);
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
-	for(uint16_t j=4;j<=11;j++){
+	for(uint16_t j=4;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
+	Set_Pixel(11+numled,204,0,0);
+	for(uint16_t j=12;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 5:
 	Set_Pixel(0+numled,0,76,153);
@@ -1125,14 +1191,17 @@ case 5:
 	Set_Pixel(2+numled,102,0,204);
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
-	for(uint16_t j=5;j<=10;j++){
+	for(uint16_t j=5;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	for(uint16_t j=13;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 6:
 	Set_Pixel(0+numled,0,76,153);
@@ -1141,15 +1210,18 @@ case 6:
 	Set_Pixel(3+numled,204,0,0);
 	Set_Pixel(4+numled,204,0,0);
 	Set_Pixel(5+numled,255,255,51);
-	for(uint16_t j=6;j<=9;j++){
+	for(uint16_t j=6;j<=7;j++){
 		Set_Pixel(j+numled,0,0,0);
 	}
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	for(uint16_t j=14;j<=15;j++){
+		Set_Pixel(j+numled,0,0,0);
+	}
 	break;
 case 7:
 	Set_Pixel(0+numled,0,76,153);
@@ -1160,14 +1232,14 @@ case 7:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,0,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,0,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,0,0);
 	break;
 case 8:
 	Set_Pixel(0+numled,0,76,153);
@@ -1178,17 +1250,17 @@ case 8:
 	Set_Pixel(5+numled,255,255,51);
 	Set_Pixel(6+numled,0,204,0);
 	Set_Pixel(7+numled,0,204,0);
-	Set_Pixel(15+numled,0,76,153);
-	Set_Pixel(14+numled,0,153,153);
-	Set_Pixel(13+numled,102,0,204);
-	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(8+numled,0,76,153);
+	Set_Pixel(9+numled,0,153,153);
+	Set_Pixel(10+numled,102,0,204);
 	Set_Pixel(11+numled,204,0,0);
-	Set_Pixel(10+numled,255,255,51);
-	Set_Pixel(9+numled,0,204,0);
-	Set_Pixel(8+numled,0,204,0);
+	Set_Pixel(12+numled,204,0,0);
+	Set_Pixel(13+numled,255,255,51);
+	Set_Pixel(14+numled,0,204,0);
+	Set_Pixel(15+numled,0,204,0);
 	break;
-
 }
+
 }
 
 	//Esta  funcion es solo para probar
@@ -1231,40 +1303,42 @@ case 8:
 	}
 	uint8_t caso=0;
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+
 		switch(caso)
 		{
-		case 0:	vumetro(2,4,6,7,2,4,6,7);
+		case 0:	vumetro(2,2,2,2,2,2,2,2);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 1: vumetro(1,3,5,8,1,3,5,8);
+		case 1: vumetro(3,3,3,3,3,3,3,3);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
 		case 2:
-		vumetro(1,5,1,5,1,5,1,5);
+		vumetro(4,4,4,4,4,4,4,4);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 3:	vumetro(2,1,3,4,2,1,3,4);
+		case 3:	vumetro(5,5,5,5,5,5,5,5);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 4:	vumetro(8,7,6,2,8,7,6,2);
+		case 4:	vumetro(6,6,6,6,6,6,6,6);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 5:	vumetro(1,2,3,4,1,2,3,4);
+		case 5:	vumetro(7,7,7,7,7,7,7,7);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
-		case 6: vumetro(1,3,6,2,1,3,6,2);
+		case 6: vumetro(8,8,8,8,8,8,8,8);
 		Set_Brillo(brillo);
 		Enviar_datos();
 		break;
 
 		}
-		caso = (caso+1)%6;
+		caso = (caso+1)%7;
+
 	}
 
 /* USER CODE END 0 */
