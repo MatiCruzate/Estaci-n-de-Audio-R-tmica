@@ -1270,8 +1270,8 @@ if((max1<out1)&(contador_adc%16==0)){
 void barras(void){
 
 //primer arbol de ifs
-if(max1>1840){
-	if(max1>2020){
+if(max1>1800){
+	if(max1>1960){
 		if(max1>2100){
 			banda1=8;
 		}
@@ -1280,7 +1280,7 @@ if(max1>1840){
 		}
 	}
 	else{
-		if(max1>1920){
+		if(max1>1880){
 			banda1=6;
 		}
 		else{
@@ -1625,7 +1625,7 @@ void Enviar_datos (void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 barras();
 
-if(banda1>7 && banda2>7 && banda3>5 && banda4>4)
+if(banda1>5 && banda2>6 && banda3>4 && banda4>4 && banda5>2)
 {
 switch(caso_laser)
 {
