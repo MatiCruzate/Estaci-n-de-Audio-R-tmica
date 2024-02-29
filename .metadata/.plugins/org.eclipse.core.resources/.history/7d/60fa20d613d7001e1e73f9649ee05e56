@@ -1270,9 +1270,9 @@ if((max1<out1)&(contador_adc%16==0)){
 void barras(void){
 
 //primer arbol de ifs
-if(max1>1840){
-	if(max1>2020){
-		if(max1>2100){
+if(max1>1815){
+	if(max1>1907){
+		if(max1>1953){
 			banda1=8;
 		}
 		else{
@@ -1280,7 +1280,7 @@ if(max1>1840){
 		}
 	}
 	else{
-		if(max1>1920){
+		if(max1>1861){
 			banda1=6;
 		}
 		else{
@@ -1289,8 +1289,8 @@ if(max1>1840){
 	}
 }
 else{
-	if(max1>1690){
-		if(max1>1760){
+	if(max1>1722){
+		if(max1>1769){
 			banda1=4;
 		}
 		else{
@@ -1298,7 +1298,7 @@ else{
 		}
      }
 	else{
-		if(max1>1640){
+		if(max1>1676){
 			banda1=2;
 		}
 		else{
@@ -1308,9 +1308,9 @@ else{
 }
 
 //segundo arbol de ifs
-if(max2>440){
-	if(max2>630){
-		if(max2>700){
+if(max2>312){
+	if(max2>469){
+		if(max2>547){
 			banda2=8;
 		}
 		else{
@@ -1318,7 +1318,7 @@ if(max2>440){
 		}
 	}
 	else{
-		if(max2>550){
+		if(max2>390){
 			banda2=6;
 		}
 		else{
@@ -1327,8 +1327,8 @@ if(max2>440){
 	}
 }
 else{
-	if(max2>260){
-		if(max2>350){
+	if(max2>156){
+		if(max2>234){
 			banda2=4;
 		}
 		else{
@@ -1336,7 +1336,7 @@ else{
 		}
      }
 	else{
-		if(max2>150){
+		if(max2>78){
 			banda2=2;
 		}
 		else{
@@ -1346,9 +1346,9 @@ else{
 }
 
 //tercer arbol de ifs
-if(max3>760){
-	if(max3>1080){
-		if(max3>1200){
+if(max3>578){
+	if(max3>864){
+		if(max3>1007){
 			banda3=8;
 		}
 		else{
@@ -1356,7 +1356,7 @@ if(max3>760){
 		}
 	}
 	else{
-		if(max3>940){
+		if(max3>721){
 			banda3=6;
 		}
 		else{
@@ -1365,8 +1365,8 @@ if(max3>760){
 	}
 }
 else{
-	if(max3>450){
-		if(max3>610){
+	if(max3>291){
+		if(max3>434){
 			banda3=4;
 		}
 		else{
@@ -1374,7 +1374,7 @@ else{
 		}
      }
 	else{
-		if(max3>200){
+		if(max3>148){
 			banda3=2;
 		}
 		else{
@@ -1384,9 +1384,9 @@ else{
 }
 
 //cuarto arbol de ifs
-if(max4>760){
-	if(max4>1080){
-		if(max4>1200){
+if(max4>588){
+	if(max4>869){
+		if(max4>1009){
 			banda4=8;
 		}
 		else{
@@ -1394,7 +1394,7 @@ if(max4>760){
 		}
 	}
 	else{
-		if(max4>930){
+		if(max4>728){
 			banda4=6;
 		}
 		else{
@@ -1403,8 +1403,8 @@ if(max4>760){
 	}
 }
 else{
-	if(max4>450){
-		if(max4>600){
+	if(max4>306){
+		if(max4>447){
 			banda4=4;
 		}
 		else{
@@ -1412,7 +1412,7 @@ else{
 		}
      }
 	else{
-		if(max4>200){
+		if(max4>166){
 			banda4=2;
 		}
 		else{
@@ -1422,9 +1422,9 @@ else{
 }
 
 //quinto arbol de ifs
-if(max5>850){
-	if(max5>1180){
-		if(max5>1300){
+if(max5>638){
+	if(max5>944){
+		if(max5>1097){
 			banda5=8;
 		}
 		else{
@@ -1432,7 +1432,7 @@ if(max5>850){
 		}
 	}
 	else{
-		if(max5>980){
+		if(max5>791){
 			banda5=6;
 		}
 		else{
@@ -1441,8 +1441,8 @@ if(max5>850){
 	}
 }
 else{
-	if(max5>450){
-		if(max5>700){
+	if(max5>331){
+		if(max5>484){
 			banda5=4;
 		}
 		else{
@@ -1450,7 +1450,7 @@ else{
 		}
      }
 	else{
-		if(max5>250){
+		if(max5>178){
 			banda5=2;
 		}
 		else{
@@ -1460,9 +1460,9 @@ else{
 }
 
 //sexto arbol de ifs
-if(max6>650){
-	if(max6>880){
-		if(max6>1000){
+if(max6>485){
+	if(max6>707){
+		if(max6>819){
 			banda6=8;
 		}
 		else{
@@ -1470,7 +1470,7 @@ if(max6>650){
 		}
 	}
 	else{
-		if(max6>730){
+		if(max6>596){
 			banda6=6;
 		}
 		else{
@@ -1479,8 +1479,8 @@ if(max6>650){
 	}
 }
 else{
-	if(max6>350){
-		if(max6>500){
+	if(max6>262){
+		if(max6>374){
 			banda6=4;
 		}
 		else{
@@ -1488,7 +1488,7 @@ else{
 		}
      }
 	else{
-		if(max6>200){
+		if(max6>151){
 			banda6=2;
 		}
 		else{
@@ -1498,9 +1498,9 @@ else{
 }
 
 //septimo arbol de ifs
-if(max7>650){
-	if(max7>950){
-		if(max7>1050){
+if(max7>523){
+	if(max7>756){
+		if(max7>873){
 			banda7=8;
 		}
 		else{
@@ -1508,7 +1508,7 @@ if(max7>650){
 		}
 	}
 	else{
-		if(max7>830){
+		if(max7>639){
 			banda7=6;
 		}
 		else{
@@ -1517,8 +1517,8 @@ if(max7>650){
 	}
 }
 else{
-	if(max7>360){
-		if(max7>520){
+	if(max7>289){
+		if(max7>406){
 			banda7=4;
 		}
 		else{
@@ -1526,7 +1526,7 @@ else{
 		}
      }
 	else{
-		if(max7>200){
+		if(max7>172){
 			banda7=2;
 		}
 		else{
@@ -1536,9 +1536,9 @@ else{
 }
 
 //octavo arbol de ifs
-if(max8>600){
-	if(max8>800){
-		if(max8>900){
+if(max8>438){
+	if(max8>619){
+		if(max8>709){
 			banda8=8;
 		}
 		else{
@@ -1546,7 +1546,7 @@ if(max8>600){
 		}
 	}
 	else{
-		if(max8>700){
+		if(max8>528){
 			banda8=6;
 		}
 		else{
@@ -1555,8 +1555,8 @@ if(max8>600){
 	}
 }
 else{
-	if(max8>350){
-		if(max8>500){
+	if(max8>256){
+		if(max8>347){
 			banda8=4;
 		}
 		else{
@@ -1564,7 +1564,7 @@ else{
 		}
      }
 	else{
-		if(max8>200){
+		if(max8>166){
 			banda8=2;
 		}
 		else{

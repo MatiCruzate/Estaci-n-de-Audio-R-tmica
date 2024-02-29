@@ -1,7 +1,7 @@
-11:54:56 **** Incremental Build of configuration Debug for project Audio_Ritmica ****
+12:40:10 **** Incremental Build of configuration Debug for project Audio_Ritmica ****
 make -j8 all 
 arm-none-eabi-size  Audio_Ritmica.elf 
    text	   data	    bss	    dec	    hex	filename
-  38348	    436	   9284	  48068	   bbc4	Audio_Ritmica.elf
+  38320	    436	   9284	  48040	   bba8	Audio_Ritmica.elf
 Finished building: default.size.stdout
  

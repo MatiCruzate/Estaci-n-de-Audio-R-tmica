@@ -1269,313 +1269,313 @@ if((max1<out1)&(contador_adc%16==0)){
 //Genera las barras antes de mandarlas
 void barras(void){
 
-//primer arbol de ifs
-if(max1>1840){
-	if(max1>2020){
-		if(max1>2100){
-			banda1=8;
+	//primer arbol de ifs
+	if(max1>1815){
+		if(max1>1907){
+			if(max1>1953){
+				banda1=8;
+			}
+			else{
+				banda1=7;
+			}
 		}
 		else{
-			banda1=7;
+			if(max1>1861){
+				banda1=6;
+			}
+			else{
+				banda1=5;
+			}
 		}
 	}
 	else{
-		if(max1>1920){
-			banda1=6;
-		}
+		if(max1>1722){
+			if(max1>1769){
+				banda1=4;
+			}
+			else{
+				banda1=3;
+			}
+	     }
 		else{
-			banda1=5;
+			if(max1>1676){
+				banda1=2;
+			}
+			else{
+				banda1=1;
+			}
 		}
 	}
-}
-else{
-	if(max1>1690){
-		if(max1>1760){
-			banda1=4;
-		}
-		else{
-			banda1=3;
-		}
-     }
-	else{
-		if(max1>1640){
-			banda1=2;
-		}
-		else{
-			banda1=1;
-		}
-	}
-}
 
-//segundo arbol de ifs
-if(max2>440){
-	if(max2>630){
-		if(max2>700){
-			banda2=8;
+	//segundo arbol de ifs
+	if(max2>312){
+		if(max2>469){
+			if(max2>547){
+				banda2=8;
+			}
+			else{
+				banda2=7;
+			}
 		}
 		else{
-			banda2=7;
+			if(max2>390){
+				banda2=6;
+			}
+			else{
+				banda2=5;
+			}
 		}
 	}
 	else{
-		if(max2>550){
-			banda2=6;
-		}
+		if(max2>156){
+			if(max2>234){
+				banda2=4;
+			}
+			else{
+				banda2=3;
+			}
+	     }
 		else{
-			banda2=5;
+			if(max2>78){
+				banda2=2;
+			}
+			else{
+				banda2=1;
+			}
 		}
 	}
-}
-else{
-	if(max2>260){
-		if(max2>350){
-			banda2=4;
-		}
-		else{
-			banda2=3;
-		}
-     }
-	else{
-		if(max2>150){
-			banda2=2;
-		}
-		else{
-			banda2=1;
-		}
-	}
-}
 
-//tercer arbol de ifs
-if(max3>760){
-	if(max3>1080){
-		if(max3>1200){
-			banda3=8;
+	//tercer arbol de ifs
+	if(max3>578){
+		if(max3>864){
+			if(max3>1007){
+				banda3=8;
+			}
+			else{
+				banda3=7;
+			}
 		}
 		else{
-			banda3=7;
+			if(max3>721){
+				banda3=6;
+			}
+			else{
+				banda3=5;
+			}
 		}
 	}
 	else{
-		if(max3>940){
-			banda3=6;
-		}
+		if(max3>291){
+			if(max3>434){
+				banda3=4;
+			}
+			else{
+				banda3=3;
+			}
+	     }
 		else{
-			banda3=5;
+			if(max3>148){
+				banda3=2;
+			}
+			else{
+				banda3=1;
+			}
 		}
 	}
-}
-else{
-	if(max3>450){
-		if(max3>610){
-			banda3=4;
-		}
-		else{
-			banda3=3;
-		}
-     }
-	else{
-		if(max3>200){
-			banda3=2;
-		}
-		else{
-			banda3=1;
-		}
-	}
-}
 
-//cuarto arbol de ifs
-if(max4>760){
-	if(max4>1080){
-		if(max4>1200){
-			banda4=8;
+	//cuarto arbol de ifs
+	if(max4>588){
+		if(max4>869){
+			if(max4>1009){
+				banda4=8;
+			}
+			else{
+				banda4=7;
+			}
 		}
 		else{
-			banda4=7;
+			if(max4>728){
+				banda4=6;
+			}
+			else{
+				banda4=5;
+			}
 		}
 	}
 	else{
-		if(max4>930){
-			banda4=6;
-		}
+		if(max4>306){
+			if(max4>447){
+				banda4=4;
+			}
+			else{
+				banda4=3;
+			}
+	     }
 		else{
-			banda4=5;
+			if(max4>166){
+				banda4=2;
+			}
+			else{
+				banda4=1;
+			}
 		}
 	}
-}
-else{
-	if(max4>450){
-		if(max4>600){
-			banda4=4;
-		}
-		else{
-			banda4=3;
-		}
-     }
-	else{
-		if(max4>200){
-			banda4=2;
-		}
-		else{
-			banda4=1;
-		}
-	}
-}
 
-//quinto arbol de ifs
-if(max5>850){
-	if(max5>1180){
-		if(max5>1300){
-			banda5=8;
+	//quinto arbol de ifs
+	if(max5>638){
+		if(max5>944){
+			if(max5>1097){
+				banda5=8;
+			}
+			else{
+				banda5=7;
+			}
 		}
 		else{
-			banda5=7;
+			if(max5>791){
+				banda5=6;
+			}
+			else{
+				banda5=5;
+			}
 		}
 	}
 	else{
-		if(max5>980){
-			banda5=6;
-		}
+		if(max5>331){
+			if(max5>484){
+				banda5=4;
+			}
+			else{
+				banda5=3;
+			}
+	     }
 		else{
-			banda5=5;
+			if(max5>178){
+				banda5=2;
+			}
+			else{
+				banda5=1;
+			}
 		}
 	}
-}
-else{
-	if(max5>450){
-		if(max5>700){
-			banda5=4;
-		}
-		else{
-			banda5=3;
-		}
-     }
-	else{
-		if(max5>250){
-			banda5=2;
-		}
-		else{
-			banda5=1;
-		}
-	}
-}
 
-//sexto arbol de ifs
-if(max6>650){
-	if(max6>880){
-		if(max6>1000){
-			banda6=8;
+	//sexto arbol de ifs
+	if(max6>485){
+		if(max6>707){
+			if(max6>819){
+				banda6=8;
+			}
+			else{
+				banda6=7;
+			}
 		}
 		else{
-			banda6=7;
+			if(max6>596){
+				banda6=6;
+			}
+			else{
+				banda6=5;
+			}
 		}
 	}
 	else{
-		if(max6>730){
-			banda6=6;
-		}
+		if(max6>262){
+			if(max6>374){
+				banda6=4;
+			}
+			else{
+				banda6=3;
+			}
+	     }
 		else{
-			banda6=5;
+			if(max6>151){
+				banda6=2;
+			}
+			else{
+				banda6=1;
+			}
 		}
 	}
-}
-else{
-	if(max6>350){
-		if(max6>500){
-			banda6=4;
-		}
-		else{
-			banda6=3;
-		}
-     }
-	else{
-		if(max6>200){
-			banda6=2;
-		}
-		else{
-			banda6=1;
-		}
-	}
-}
 
-//septimo arbol de ifs
-if(max7>650){
-	if(max7>950){
-		if(max7>1050){
-			banda7=8;
+	//septimo arbol de ifs
+	if(max7>523){
+		if(max7>756){
+			if(max7>873){
+				banda7=8;
+			}
+			else{
+				banda7=7;
+			}
 		}
 		else{
-			banda7=7;
+			if(max7>639){
+				banda7=6;
+			}
+			else{
+				banda7=5;
+			}
 		}
 	}
 	else{
-		if(max7>830){
-			banda7=6;
-		}
+		if(max7>289){
+			if(max7>406){
+				banda7=4;
+			}
+			else{
+				banda7=3;
+			}
+	     }
 		else{
-			banda7=5;
+			if(max7>172){
+				banda7=2;
+			}
+			else{
+				banda7=1;
+			}
 		}
 	}
-}
-else{
-	if(max7>360){
-		if(max7>520){
-			banda7=4;
-		}
-		else{
-			banda7=3;
-		}
-     }
-	else{
-		if(max7>200){
-			banda7=2;
-		}
-		else{
-			banda7=1;
-		}
-	}
-}
 
-//octavo arbol de ifs
-if(max8>600){
-	if(max8>800){
-		if(max8>900){
-			banda8=8;
+	//octavo arbol de ifs
+	if(max8>438){
+		if(max8>619){
+			if(max8>709){
+				banda8=8;
+			}
+			else{
+				banda8=7;
+			}
 		}
 		else{
-			banda8=7;
+			if(max8>528){
+				banda8=6;
+			}
+			else{
+				banda8=5;
+			}
 		}
 	}
 	else{
-		if(max8>700){
-			banda8=6;
-		}
+		if(max8>256){
+			if(max8>347){
+				banda8=4;
+			}
+			else{
+				banda8=3;
+			}
+	     }
 		else{
-			banda8=5;
+			if(max8>166){
+				banda8=2;
+			}
+			else{
+				banda8=1;
+			}
 		}
 	}
-}
-else{
-	if(max8>350){
-		if(max8>500){
-			banda8=4;
-		}
-		else{
-			banda8=3;
-		}
-     }
-	else{
-		if(max8>200){
-			banda8=2;
-		}
-		else{
-			banda8=1;
-		}
+
 	}
-}
 
-}
-
-//Me armo una función que envíe los datos desde DMA a neopixeles
+	//Me armo una función que envíe los datos desde DMA a neopixeles
 
 void Enviar_datos (void)
 {
