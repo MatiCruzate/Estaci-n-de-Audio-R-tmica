@@ -1,5 +1,6 @@
 # Estaci-n-de-Audio-R-tmica
-Este repositorio incluye los programas utilizados para implementar una estación de audio rítmica: vúmetro digital, juego de luces y control de servomotores. Se ha realizado para la materia Técnicas Digitales 3 de la UNLAM
+Este repositorio incluye los programas utilizados para implementar una estación de audio rítmica: vúmetro digital, juego de luces y control de servomotores. 
+Proyecto realizado para la carrera de Ingeniería en Electrónica de la UNLAM
 
 Se incluyen los siguientes archivos:
 -Audio_Ritmica: Prograa en C que contiene la aplicación principal, incluyendo todas las funciones utilizadas en las pruebas
@@ -11,3 +12,4 @@ Se incluyen los siguientes archivos:
 Simulaciones MATLAB: Pruebas de los filtros digitales IIR en MATLAB
 Informe-Cruzate_v3.pdf: El informe de la materia Técnicas Digitales 3 de la UNLAM acerca de este proyecto, donde está la explicación de cómo se realizó y se incluyen anexos para los cálculos y análisis complementarios
 Presentación- Estación de Audio Rítmica: La presentación del proyecto realizada con CANVA
+Camino_Critico_MC.ypbn: programa en Python donde se realizaron simulaciones computacionales basadas en el Método de Monte Carlo para corroborar el camino crítico en la evaluación de tareas a realizar en el proyecto.
